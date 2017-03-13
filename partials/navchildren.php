@@ -1,7 +1,7 @@
 <?php if(has_children()  OR $post->post_parent > 0 ){?>
            
                          <?php what_menu('secondary'); ?>
-           <nav class="nav navbar" role="navigation">>
+           <nav class="nav navbar navbar-inverse" role="navigation">>
             <a href="<?php the_permalink(get_top_ancestor_id()) ?>"> <?php echo get_the_title(get_top_ancestor_id()) ?></a>
               <ul>
                        <?php 

@@ -17,6 +17,8 @@ register_nav_menus( array(
 function skator_theme_styles()
 {
     wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' );
+    wp_enqueue_style( 'googlefont_montserrat', 'https://fonts.googleapis.com/css?family=Montserrat' );
+
     wp_enqueue_style( 'bootstrap_css' , get_template_directory_uri() . '/css/bootstrap.css' );
     //wp_enqueue_style( 'bootstrap_theme_css' , get_template_directory_uri() . '/css/bootstrap-theme.css' );
     wp_enqueue_style( 'style_css' , get_template_directory_uri() . '/style.css' );
@@ -39,6 +41,7 @@ function skator_theme_js()
     $wp_scripts->add_data( 'html5_shiv', 'conditional', 'lt IE 9' );    
     $wp_scripts->add_data( 'respond_js', 'conditional', 'lt IE 9' );
     // Adds it, Dependent on jquery. Jquery gets loaded first
+    wp_enqueue_script( 'onload_js' ,  get_template_directory_uri() . '/js/onload.js' ,array('jquery') , '' , true  ); 
     wp_enqueue_script( 'bootstrap_js' , get_template_directory_uri() . '/js/bootstrap.min.js' , array('jquery') , '' , true );
 }
 add_action( 'wp_enqueue_scripts' , 'skator_theme_js' );

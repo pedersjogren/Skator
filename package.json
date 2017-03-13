@@ -1,0 +1,29 @@
+{
+  "name": "skator-theme",
+  "version": "1.0.0",
+  "description": "A theme for Skator",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedersjogren/Skator-theme.git"
+  },
+  "keywords": [
+    "Skator",
+    "WordPress"
+  ],
+  "author": "Peder Sjögren",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pedersjogren/Skator-theme/issues"
+  },
+  "homepage": "https://github.com/pedersjogren/Skator-theme#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "mocha": "^3.2.0",
+    "uglify-js": "^2.8.7"
+  }
+}
