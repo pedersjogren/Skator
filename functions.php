@@ -10,7 +10,7 @@
 register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'Skator' ),
     'secondary' =>__('secondary_menu', 'Skator' ),
-    'footer' =>__('Footer_menu', 'Skator' )
+    //'footer' =>__('Footer_menu', 'Skator' )
 ) );
 
 
@@ -41,12 +41,16 @@ function skator_theme_js()
     $wp_scripts->add_data( 'html5_shiv', 'conditional', 'lt IE 9' );    
     $wp_scripts->add_data( 'respond_js', 'conditional', 'lt IE 9' );
     // Adds it, Dependent on jquery. Jquery gets loaded first
-    wp_enqueue_script( 'onload_js' ,  get_template_directory_uri() . '/js/onload.js' ,array('jquery') , '' , true  ); 
+    if ( wp_is_mobile() ) { 
+        wp_enqueue_script( 'mobile_js' ,  get_template_directory_uri() . '/js/mobile.js' ,array('jquery') , '' , true  ); 
+    }else{
+        wp_enqueue_script( 'onload_js' ,  get_template_directory_uri() . '/js/onload.js' ,array('jquery') , '' , true  ); 
+    }
     wp_enqueue_script( 'bootstrap_js' , get_template_directory_uri() . '/js/bootstrap.min.js' , array('jquery') , '' , true );
 }
 add_action( 'wp_enqueue_scripts' , 'skator_theme_js' );
 
-add_theme_support( 'post-thumbnails' );
+//add_theme_support( 'post-thumbnails' );
 //add_theme_support( 'menus' );
 
 
@@ -134,6 +138,75 @@ function get_top_ancestor_id()
       return count($pages);
         
     }
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_pressbilder',
+		'title' => 'Pressbilder',
+		'fields' => array (
+			array (
+				'key' => 'field_58c74b2824e97',
+				'label' => 'Pressbilder',
+				'name' => 'press_images',
+				'type' => 'image',
+				'instructions' => 'Lägg till bilder',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_58c74b7a24e98',
+				'label' => 'Beskrivning',
+				'name' => 'press_image_description',
+				'type' => 'textarea',
+				'instructions' => 'Lägg till en beskrivning',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_58c7508e7af2a',
+				'label' => '',
+				'name' => '',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'pressbilder',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '59',
+					'order_no' => 1,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 
 

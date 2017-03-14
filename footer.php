@@ -1,18 +1,35 @@
 
 
             <footer class="footer">
-             <div class="navbar navbar-inverse navbar-fixed-bottom">
-                <div class="container">
-                  <div class="navbar-text pull-left">© 2017 - Byggd av <a href="mailto:ped.sjogren@gmail.com?Subject=Skator web" target="_top">Peder Sjögren</a></div>
+             <div class="navbar-fixed-bottom">
+               <?php
+                 if ( wp_is_mobile() ) {
+                     ?> 
+                     <div class="container">
+                    <div class="navbar small-device social pull-right">
+                  <a href="https://www.facebook.com/skator"><i id="social-fb" class="mobile-social fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/skator"><i id="social-tw" class=" mobile-social fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://google.com/skator"><i id="social-gp" class="mobile-social fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:skator@gmail.com"><i id="social-em" class="mobile-social fa fa-envelope-square fa-3x social"></i>
+                      </a>
+                    </div> 
+                 </div>
+                <?php     
+                 }else{
+?>
 
-                  <div class="navbar pull-right social">
-                  <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-	            <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-	            <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-	            <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i>
+                <div class="container">
+                  <div class="navbar-text view pull-left">© 2017 - Skator <a href="mailto:ped.sjogren@gmail.com?Subject=Skator web" target="_top" class="author">Peder Sjögren</a></div>
+
+                  <div class="navbar small-device social pull-right">
+                  <a href="https://www.facebook.com/skator"><i id="social-fb" class="mobile-social fa fa-facebook-square fa-3x social"></i></a>
+	            <a href="https://twitter.com/skator"><i id="social-tw" class=" mobile-social fa fa-twitter-square fa-3x social"></i></a>
+	            <a href="https://google.com/skator"><i id="social-gp" class="mobile-social fa fa-google-plus-square fa-3x social"></i></a>
+	            <a href="mailto:skator@gmail.com"><i id="social-em" class="mobile-social fa fa-envelope-square fa-3x social"></i>
                       </a>
                     </div>
                 </div>
+                <?php } ?>
             </div>
         </footer>    
     <?php wp_footer(); ?>
