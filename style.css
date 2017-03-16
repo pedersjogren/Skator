@@ -239,9 +239,15 @@ h1:hover {
 
 .footer{
     margin-top: 100px;
+    
+
    /* filter: blur(var(--blur)); */
 }
 
+.navbar-fixed-bottom
+{
+    /*  background: rgba(200,200,200, 0.9); */
+}
 /* Custom navbar */
 
 .navbar-inverse {
@@ -268,6 +274,15 @@ h1:hover {
     background-color: var(--navSelect); 
 }
 
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > .active > a{
+    color: #fff;
+    background-color: var(--navSelect); 
+}
+.current-menu-ancestor .current-menu-parent .current-page-parent .current_page_ancestor > a{
+    
+  color: #fff;  
+}
 
 .modal-img-responsive {
     display: block;
@@ -315,6 +330,20 @@ h1:hover {
     color: #fff;
     background-color: var(--navSelect); 
 }
+
+
+/* SELECTED ELEMENT DROPDOWN A BILDER
+.navbar-inverse .navbar-nav .current_page_ancestor > li > a:active {
+    color: #fff;
+ 
+}
+*/
+
+.dropdown-menu{
+    background: #333;
+}
+
+
 /*holds the front and back icons*/
 
 .modal-icon .icon {
