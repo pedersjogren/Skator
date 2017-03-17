@@ -468,14 +468,10 @@ h1:hover {
     }
 }
 
+
 @media (min-width: 992px) {
     .modal-open .modal {
        /* margin-top: 20%; */
-    }
-    .secondary-nav{
-    
-        display: none;
-
     }
 }
 @media (min-width: 1200px{
