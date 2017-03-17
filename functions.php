@@ -1,19 +1,14 @@
 <?php
-
 $output = "";
-
 register_nav_menus( array(
     'primary' => __( 'Primary Menu', 'Skator' ),
     'secondary' =>__('secondary_menu', 'Skator' ),
     //'footer' =>__('Footer_menu', 'Skator' )
 ) );
-
-
 function skator_theme_styles()
 {
     wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' );
     wp_enqueue_style( 'googlefont_montserrat', 'https://fonts.googleapis.com/css?family=Montserrat' );
-
     wp_enqueue_style( 'bootstrap_css' , get_template_directory_uri() . '/css/bootstrap.css' );
     //wp_enqueue_style( 'bootstrap_theme_css' , get_template_directory_uri() . '/css/bootstrap-theme.css' );
     wp_enqueue_style( 'style_css' , get_template_directory_uri() . '/style.css' );
@@ -23,8 +18,6 @@ function skator_theme_styles()
     
 }
 add_action( 'wp_enqueue_scripts' , 'skator_theme_styles' );
-
-
 function skator_theme_js()
 {  
    //To load dynamically
@@ -44,11 +37,8 @@ function skator_theme_js()
     wp_enqueue_script( 'bootstrap_js' , get_template_directory_uri() . '/js/bootstrap.min.js' , array('jquery') , '' , true );
 }
 add_action( 'wp_enqueue_scripts' , 'skator_theme_js' );
-
 //add_theme_support( 'post-thumbnails' );
 //add_theme_support( 'menus' );
-
-
 function my_custom_tooltip() {
 if(is_page('13')){
   wp_enqueue_style( 'styled_css', get_template_directory_uri() . '/css/styled.css' );
@@ -56,8 +46,6 @@ if(is_page('13')){
 } 
 }
 add_action('wp_enqueue_scripts', 'my_custom_tooltip');
-
-
 function what_menu($theme_placement){
     require_once('classes/navwalker.php');
                 wp_nav_menu( array(
@@ -73,8 +61,6 @@ function what_menu($theme_placement){
             );
     
 }
-
-
 add_filter('body_class','my_body_classes');
 function my_body_classes($classes) {
 	
@@ -83,12 +69,9 @@ function my_body_classes($classes) {
 	is_page_template('your-template.php')	? $c[] = 'your-template-class'	: null; */
 	is_404()        		? $classes[] = 'error404'     	: null; 
     wp_is_mobile()        		? $classes[] = 'is_mobile'     	: null; 
-
     return $classes;
 }
-
 function if_mobile_images(){
-
     $output = "";
     $output .= "<div class='container-fluid'>";
     
@@ -107,13 +90,11 @@ function if_mobile_images(){
     $output .= "</div>";
     return $output;
 }
-
 function if_mobile_footer(){
     
     $output = "";
     $output .= "<div class='container'>";
     if ( wp_is_mobile() ) { 
-
         $output .= "<div class='navbar small-device social pull-right'>
         <a href='https://www.facebook.com/skator'><i id='social-fb' class='mobile-social fa fa-facebook-square fa-3x social'></i></a>
         <a href='https://twitter.com/skator'><i id='social-tw' class=' mobile-social fa fa-twitter-square fa-3x social'></i></a>
@@ -122,7 +103,6 @@ function if_mobile_footer(){
         </div>";
         
     }else{ 
-
          
         $output .= "<div class='navbar-text view pull-left'>© 2017 - Skator <a href='mailto:ped.sjogren@gmail.com?   Subject=Skator web' target='_top' class='author'>Peder Sjögren</a></div>";
         $output .= "<div class='navbar small-device social pull-right'>";
@@ -132,13 +112,11 @@ function if_mobile_footer(){
         $output .= "<a href='mailto:skator@gmail.com'><i id='social-em' class='mobile-social fa fa-envelope-square fa-3x social'></i></a>";
         $output .= "</div>";
        
-
      }
     $output .= "</div>";
     
     return $output;
 }
-
 function get_top_ancestor_id()
 {
     global $post;
@@ -153,20 +131,13 @@ function get_top_ancestor_id()
     
     return $post->ID; 
 }
-
-
-
     function has_children() {
-
       global $post;
-
       //Get any pages that are a child of what we are currently viewing
       $pages = get_pages('child_of=' . $post->ID);
-
       return count($pages);
         
     }
-
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -235,7 +206,4 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 }
-
-
-
 ?>
