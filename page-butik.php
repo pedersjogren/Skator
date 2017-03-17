@@ -1,17 +1,7 @@
 <?php get_header(); ?>
 
-
-
-
-
-
 <div class="container-fluid">
 
-<?php get_header(); ?>  
-
-<!-- Page overides index. in controlling html output for all of our pages -->
-    
-        <!-- main column -->
     <div class="main-column">
 <?php
 
@@ -24,7 +14,7 @@
     
      
     $map = array_search f('container-fluid section', $maps_array);
-       var_dump($map);
+    var_dump($map);
     
 ?>
       <?php  if( have_posts() ) :

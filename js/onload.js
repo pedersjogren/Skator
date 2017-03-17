@@ -29,6 +29,12 @@
             $(".social").removeClass("text-center").addClass("pull-right");
         }
     });
-
+  
+    //Modals
+    $('#myModal').on('show.bs.modal', function (e) {
+        let image = $(e.relatedTarget).attr('src');
+        $(".modal-img-responsive").attr("src", image);
+    });
+    
 })(jQuery);
 
